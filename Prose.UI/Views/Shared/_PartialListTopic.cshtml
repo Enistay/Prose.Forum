@@ -1,0 +1,72 @@
+﻿@model IList<Prose.Application.ViewModels.TopicViewModel>
+@{
+    var page = (int)ViewBag.PageNumber;
+    string action = ViewBag.PageAction as string;
+    string controller = ViewBag.PageController as string;
+    int pagesLink = 5;
+}
+
+@foreach (var item in Model)
+{
+    <div class="prose-div-list-post">
+        <div class="prose-div-list-info-post">
+
+            <div class="prose-div-list-user-post">
+                <span class="glyphicon glyphicon-user img-circle" aria-hidden="true"></span>
+                By @item.Username
+            </div>
+
+            <div class="prose-div-list-create-post">
+                Post on @item.Creation.ToString("F")
+            </div>
+            @if (!item.UpdateDate.Equals(DateTime.MinValue) && !item.UpdateDate.Equals(item.Creation))
+            {
+                <div class="prose-div-list-create-post">
+                    Updated on  @item.UpdateDate.ToString("F")
+                </div>
+            }
+
+            @if (User.Identity.Name.Equals(item.Username))
+            {
+                @Html.Partial("../Shared/_PartialButtonEditTopic", new ViewDataDictionary{ { "id", item.TopicId } })
+            }
+        </div>
+        <div class="list-group">
+            <a href="@Url.Action("Topic","Home", new { id = item.TopicId })" class="list-group-item">
+                <h4 class="list-group-item-heading">@item.Title</h4>
+                <p class="list-group-item-text text-justify">
+                    @item.Text
+                </p>
+            </a>
+        </div>
+    </div>
+}
+
+<div class="prose-pagination">
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li>
+                <a href="@Url.Action(action,controller,  new { page = page > 1? page - 1 : 1 }  )" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            @for (int i = 1; i < pagesLink; i++)
+            {
+                if (page == i)
+                {
+                    <li class="active"><a href="@Url.Action(action,controller, new { page = i })">@i</a></li>
+                }
+                else
+                {
+                    <li><a href="@Url.Action(action,controller, new { page = i } )">@i</a></li>
+                }
+            }
+
+            <li>
+                <a href="@Url.Action(action,controller, new { page = page + 1 } )" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Topic";
+}
+
+<div class="container">
+    <div class="prose-mytopic-div">
+        <div class="prose-mytopic-div-title">
+            <h4>My Topics</h4>
+        </div>
+
+        @Html.Partial("../Shared/_PartialButtonNewTopic")
+    </div>
+
+    @Html.Partial("../Shared/_PartialListTopic")
+
+</div>

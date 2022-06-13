@@ -1,0 +1,111 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.container{
+    margin-top: 5px;
+}
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+    background-color: #777;
+    border-color: #fff
+}
+
+/*Prose CSS*/
+.prose-div-list-post, .prose-div-list-user-post {
+    padding: 10px;
+}
+
+.prose-index-div, .prose-mytopic-div {
+    width: 100%;
+    display: inline-block;
+}
+
+.prose-index-div-title, .prose-mytopic-div-title {
+    width: 50%;
+    float: left;
+    margin-left: 15px;
+}
+
+.prose-index-div-btn {
+    width:100px;
+    float:left;
+    margin-top:18px;
+}
+.prose-div-list-user-post, prose-div-list-create-post {
+    float: left;
+    padding: 0px 5px;
+}
+
+.prose-pagination, footer p {
+    margin: auto;
+    width: 30%;
+}
+
+.prose-div-form {
+    margin-top:15px;
+}
+
+
+.prose-div-text-danger > span {
+    float: left;
+    margin-top: 10px;
+    margin-left: 16px;
+}
+
+.prose-form-user input {
+    max-width: 280px;
+}
+
+.prose-form-btn input {
+    float: right;
+}
+
+.prose-form-user .prose-form-btn input {
+    margin-right: 30px;
+}
+
+.prose-btn-edit {
+    width: 100px;
+    float: right;
+    margin-top: -30px;
+}
+/*End Prose CSS*/
+/*Bootstap CSS override*/
+.navbar-inverse {
+    background-color: #5cb85c !important;
+    border-color: #17e71a;
+}
+
+    .navbar-inverse .navbar-brand,.navbar-inverse .navbar-nav > li > a {
+        color: #fff !important;
+    }
+
+        .navbar-inverse .navbar-nav > li > a:hover,
+        .navbar-inverse .navbar-nav > li > a:focus {
+            color: #fff;
+            background-color: #4cae4c;
+        }
+/*End Bootstap CSS override*/
+    

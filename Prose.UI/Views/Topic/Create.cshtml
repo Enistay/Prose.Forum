@@ -1,0 +1,12 @@
+﻿@model Prose.UI.Models.TopicCreate
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@using (Html.BeginForm("Create", "Topic", FormMethod.Post,
+    new { @class = "form-horizontal" }))
+{
+    @Html.Partial("_PartialTopic");
+}
+

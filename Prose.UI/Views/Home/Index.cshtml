@@ -1,0 +1,17 @@
+﻿@model IList<Prose.Application.ViewModels.TopicViewModel>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container">
+    <div class="prose-index-div">
+        <div class="prose-index-div-title">
+            <h4>Lastet Topic</h4>
+        </div>
+        @Html.Partial("../Shared/_PartialButtonNewTopic")
+    </div>
+
+
+    @Html.Partial("../Shared/_PartialListTopic")
+   
+</div>

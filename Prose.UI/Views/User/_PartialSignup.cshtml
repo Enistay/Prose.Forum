@@ -1,0 +1,66 @@
+﻿@model Prose.UI.Models.UserSignup
+
+@Html.AntiForgeryToken()
+
+
+
+<div class="container">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="prose-div-form prose-form-user form-login">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title">@ViewBag.Title</div>
+            </div>
+
+            <div style="padding-top:30px" class="panel-body">
+                <div style="display:none" id="result" class="alert
+                    alert-danger col-sm-12">
+
+                </div>
+
+                <div style="margin-bottom: 25px" class="input-group">
+                    <span class="input-group-addon">
+                        <i class="glyphicon
+                        glyphicon-user"></i>
+                    </span>
+                    @Html.EditorFor(model => model.Username, new
+                    {
+                        htmlAttributes =
+                         new
+                         {
+                             @class = "form-control input-lg",
+                             placeholder =
+                             "Username",
+                             autofocus = true
+                         }
+                    })
+                    @Html.ValidationMessageFor(model => model.Username, "",
+                    new { @class = "prose-div-text-danger text-danger" })
+                </div>
+
+                <div style="margin-bottom: 25px" class="input-group">
+                    <span class="input-group-addon">
+                        <i class="glyphicon
+                        glyphicon-lock"></i>
+                    </span>
+                    @Html.EditorFor(model => model.Password, new
+                    {
+                        htmlAttributes
+                    = new { @class = "form-control input-lg", placeholder = "Senha" }
+                    })
+                    @Html.ValidationMessageFor(model => model.Password, "",
+                    new { @class = "prose-div-text-danger text-danger" })
+                </div>
+
+                <div style="margin-top:10px" class="form-group">
+
+                    <div class="prose-form-btn col-sm-4 controls">
+                        <input type="submit" value="@ViewBag.Title"
+                               class="btn btn-success btn-lg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

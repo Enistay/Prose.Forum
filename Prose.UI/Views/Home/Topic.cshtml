@@ -1,0 +1,45 @@
+﻿@model Prose.Application.ViewModels.TopicViewModel
+
+<div class="container">
+    <div class="prose-div-list-post">
+        <div class="prose-div-list-info-post">
+
+            <div class="prose-div-list-user-post">
+                <span class="glyphicon glyphicon-user img-circle" aria-hidden="true"></span>
+                By @Model.Username
+            </div>
+
+            <div class="prose-div-list-create-post">
+                Post on @Model.Creation.ToString("F")
+            </div>
+            @if (!Model.UpdateDate.Equals(DateTime.MinValue) && !Model.UpdateDate.Equals(Model.Creation))
+            {
+                <div class="prose-div-list-create-post">
+                    Updated on  @Model.UpdateDate.ToString("F")
+                </div>
+            }
+        </div>
+        <div class="list-group">
+            <h4 class="list-group-item-heading text-center">@Model.Title</h4>
+            <div class="list-group-item-text text-justify">
+                @Model.Text
+            </div>
+        </div>
+
+        <div class="prose-div-comment-post col-md-4">
+            <h4>Comments</h4>
+
+            <div class="form-group">
+                <textarea class="form-control" rows="2"></textarea>
+                </div>
+                <div style="margin-top:10px" class="form-group">
+
+                    <div class="prose-form-btn controls">
+                        <input type="submit" value="Submit"
+                               class="btn btn-success btn-sm" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</div>

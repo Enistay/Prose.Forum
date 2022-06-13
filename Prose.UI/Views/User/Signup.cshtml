@@ -1,0 +1,11 @@
+﻿@model Prose.UI.Models.UserSignup
+
+@{
+    ViewBag.Title = "Sign Up";
+}
+
+@using (Html.BeginForm("Signup", "User", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post,
+    new { @class = "form-horizontal" }))
+{
+    @Html.Partial("_PartialSignup");
+}
