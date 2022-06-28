@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Prose.UI.Controllers
 {
-    [Authorize]
+    [Authorize]   
     public class TopicController : Controller
     {
         private readonly ITopicService _topicService;
@@ -29,6 +29,7 @@ namespace Prose.UI.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(TopicCreate topicCreate)
         {
             if (ModelState.IsValid)
@@ -81,6 +82,7 @@ namespace Prose.UI.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(TopicCreate topicCreate)
         {
             if (ModelState.IsValid)
